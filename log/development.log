@@ -1,0 +1,1281 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateAds (20110118222704)
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "ads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "price" decimal, "seller_id" integer, "email" varchar(255), "img_url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110118222704')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("ads")[0m
+
+
+Processing AdsController#3 (for 127.0.0.1 at 2011-01-20 07:13:31) [GET]
+
+ActionController::UnknownAction (No action responded to 3. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-20 07:16:12) [GET]
+  Parameters: {"id"=>"3"}
+Rendering ads/show
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-20 07:27:15) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (11.7ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering ads/show
+Completed in 47ms (View: 9, DB: 12) | 200 OK [http://localhost/ads/3]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-20 07:37:36) [GET]
+
+ActionController::RoutingError (No route matches "/stats/56" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-20 23:08:37) [GET]
+  [4;36;1mAd Load (14.6ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering ads/index
+Completed in 178ms (View: 143, DB: 15) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-20 23:08:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering ads/show
+Completed in 39ms (View: 34, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-20 23:09:04) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 2) [0m
+Rendering ads/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/2]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-20 23:19:12) [GET]
+  [4;35;1mAd Load (1.5ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 19ms (View: 13, DB: 2) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-20 23:19:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 07:34:30) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+
+ActionView::TemplateError (undefined local variable or method `url' for #<ActionView::Base:0x2554ff4>) on line #2 of app/views/ads/new.html.erb:
+1: <h1>New ad</h1>
+2: <% form_for(@ad,url=>{:action=>'create'})do |f| %>
+3: <p><b>Name</b><br /><%= f.text_field :name %></p>
+4: <p><b>Description</b><br /><%= f.text_area :description %></p>
+5: <p><b>Price</b><br /><%= f.text_field :price %></p>
+
+    app/views/ads/new.html.erb:2
+
+Rendered rescues/_trace (43.6ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 07:49:45) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+
+ActionView::TemplateError (undefined local variable or method `url' for #<ActionView::Base:0x2402d54>) on line #2 of app/views/ads/new.html.erb:
+1: <h1>New ad</h1>
+2: <% form_for(@ad,url=>{:action=>'create'})do |f| %>
+3: <p><b>Name</b><br /><%= f.text_field :name %></p>
+4: <p><b>Description</b><br /><%= f.text_area :description %></p>
+5: <p><b>Price</b><br /><%= f.text_field :price %></p>
+
+    app/views/ads/new.html.erb:2
+
+Rendered rescues/_trace (111.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 07:50:08) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+
+ActionView::TemplateError (undefined local variable or method `url' for #<ActionView::Base:0x2554a68>) on line #2 of app/views/ads/new.html.erb:
+1: <h1>New ad</h1>
+2: <% form_for(@ad,url=>{:action=>'create'})do |f| %>
+3: <p><b>Name</b><br /><%= f.text_field :name %></p>
+4: <p><b>Description</b><br /><%= f.text_area :description %></p>
+5: <p><b>Price</b><br /><%= f.text_field :price %></p>
+
+    app/views/ads/new.html.erb:2
+
+Rendered rescues/_trace (47.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-21 07:50:16) [GET]
+  [4;36;1mAd Load (17.2ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 38ms (View: 16, DB: 17) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 07:50:24) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+
+ActionView::TemplateError (undefined local variable or method `url' for #<ActionView::Base:0x23dc0dc>) on line #2 of app/views/ads/new.html.erb:
+1: <h1>New ad</h1>
+2: <% form_for(@ad,url=>{:action=>'create'})do |f| %>
+3: <p><b>Name</b><br /><%= f.text_field :name %></p>
+4: <p><b>Description</b><br /><%= f.text_area :description %></p>
+5: <p><b>Price</b><br /><%= f.text_field :price %></p>
+
+    app/views/ads/new.html.erb:2
+
+Rendered rescues/_trace (107.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 07:51:00) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 07:52:38) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-21 07:52:44) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"", "price"=>"", "description"=>"", "img_url"=>"", "seller_id"=>"", "email"=>""}, "authenticity_token"=>"rj16OZFoMCb9jqHqEb4tbAl9CtxqpXnSBoAU6nasSRw="}
+
+ActionController::UnknownAction (No action responded to create. Actions: index, new, show, and stats):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 07:55:58) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-21 08:03:13) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 91ms (View: 86, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-29 12:28:06) [GET]
+  [4;36;1mAd Load (14.9ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 192ms (View: 157, DB: 15) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-29 12:28:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 54ms (View: 49, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-29 12:28:22) [GET]
+  [4;36;1mAd Load (1.7ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 10ms (View: 4, DB: 2) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-29 12:28:33) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 73ms (View: 68, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-29 12:45:24) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-29 12:45:42) [GET]
+  [4;35;1mAd Load (1.4ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-29 12:45:46) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mAd Load (0.4ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 37) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/ads/37]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-29 12:45:51) [GET]
+  [4;35;1mAd Load (1.7ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 10ms (View: 4, DB: 2) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-29 12:45:53) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 8) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/8]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-29 12:45:55) [GET]
+  [4;35;1mAd Load (1.4ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-29 12:46:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-29 12:46:11) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-29 12:51:45) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-29 12:53:44) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-29 12:59:30) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-29 13:11:35) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-29 13:11:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-29 13:12:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAd Load (0.4ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 17ms (View: 10, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 12:52:42) [GET]
+  [4;36;1mAd Load (14.7ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 91ms (View: 59, DB: 15) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 12:52:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 2) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/ads/2]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 12:52:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.4ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 12:53:08) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 58ms (View: 53, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 12:53:47) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 12:54:48) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 12:55:01) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 12:55:34) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 12:55:47) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.4ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 12:56:07) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 12:56:23) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 12:59:28) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:00:07) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:03:12) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.4ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:03:26) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:04:58) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:05:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:05:13) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:05:49) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:05:59) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:09:33) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:09:39) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.4ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:09:54) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.4ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 70ms (View: 65, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:09:59) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 13:13:34) [GET]
+  [4;36;1mAd Load (1.7ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 10ms (View: 4, DB: 2) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 13:20:23) [GET]
+  [4;35;1mAd Load (1.4ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:20:29) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:20:44) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:21:01) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:21:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:21:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.4ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:22:02) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:22:10) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 13:23:06) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.4ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 13:23:19) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-30 15:11:59) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"aaa", "price"=>"111", "description"=>"bbb", "img_url"=>"kkkk.jpg", "seller_id"=>"ddd", "email"=>"eee"}, "authenticity_token"=>"+yKPmOB1ZyuGrCoOWCuxMVavu8uY9wh8Y6CRJJGHJ+w="}
+
+ActionController::UnknownAction (No action responded to create. Actions: index, new, show, and stats):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-30 15:16:34) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"aaa", "price"=>"111", "description"=>"bbb", "img_url"=>"kkkk.jpg", "seller_id"=>"ddd", "email"=>"eee"}, "authenticity_token"=>"+yKPmOB1ZyuGrCoOWCuxMVavu8uY9wh8Y6CRJJGHJ+w="}
+  [4;35;1mAd Create (0.4ms)[0m   [0mINSERT INTO "ads" ("name", "updated_at", "price", "description", "img_url", "seller_id", "email", "created_at") VALUES('aaa', '2011-01-30 06:16:34', 111.0, 'bbb', 'kkkk.jpg', 0, 'eee', '2011-01-30 06:16:34')[0m
+
+ActionView::MissingTemplate (Missing template ads/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-30 15:20:57) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"aaa", "price"=>"111", "description"=>"bbb", "img_url"=>"kkkk.jpg", "seller_id"=>"ddd", "email"=>"eee"}, "authenticity_token"=>"+yKPmOB1ZyuGrCoOWCuxMVavu8uY9wh8Y6CRJJGHJ+w="}
+  [4;36;1mAd Create (0.3ms)[0m   [0;1mINSERT INTO "ads" ("name", "updated_at", "price", "description", "img_url", "seller_id", "email", "created_at") VALUES('aaa', '2011-01-30 06:20:57', 111.0, 'bbb', 'kkkk.jpg', 0, 'eee', '2011-01-30 06:20:57')[0m
+Redirected to http://localhost:3000/ads/39
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/ads/create]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 15:20:57) [GET]
+  Parameters: {"id"=>"39"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 39) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/39]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-30 15:20:57) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kkkk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 16:34:12) [GET]
+  [4;36;1mAd Load (1.6ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 9ms (View: 4, DB: 2) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 16:35:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+
+ActionView::TemplateError (undefined local variable or method `ad' for #<ActionView::Base:0x24054a0>) on line #20 of app/views/ads/show.html.erb:
+17:       <img src="<%= @ad.img_url %>"/>
+18:     </p>
+19: 
+20:     <a href="/ads/<%= ad.id %>/edit">Edit</a>
+
+    app/views/ads/show.html.erb:20
+
+Rendered rescues/_trace (41.8ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 16:39:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+
+ActionView::TemplateError (undefined local variable or method `ad' for #<ActionView::Base:0x22ac34c>) on line #20 of app/views/ads/show.html.erb:
+17:       <img src="<%= @ad.img_url %>"/>
+18:     </p>
+19: 
+20:     <a href="/ads/<%= ad.id %>/edit">Edit</a>
+
+    app/views/ads/show.html.erb:20
+
+Rendered rescues/_trace (38.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 16:45:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+
+ActionView::TemplateError (undefined local variable or method `ad' for #<ActionView::Base:0x24653c8>) on line #20 of app/views/ads/show.html.erb:
+17:       <img src="<%= @ad.img_url %>"/>
+18:     </p>
+19: 
+20:     <a href="/ads/<%= ad.id %>/edit">Edit</a>
+
+    app/views/ads/show.html.erb:20
+
+Rendered rescues/_trace (39.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 16:46:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-30 16:46:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://localhost/ads/1/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-30 16:46:59) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"Typewriter", "price"=>"71.95", "description"=>"Old manual typewriter. Many years useful service. Works best with a bottle next to it.\r\nhey!!", "img_url"=>"http://homepage.mac.com/david_griffiths/typewriter.png", "seller_id"=>"54", "email"=>"dhammett@email.com"}, "authenticity_token"=>"+yKPmOB1ZyuGrCoOWCuxMVavu8uY9wh8Y6CRJJGHJ+w=", "id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+  [4;35;1mAd Update (0.3ms)[0m   [0mUPDATE "ads" SET "description" = 'Old manual typewriter. Many years useful service. Works best with a bottle next to it.
+hey!!', "updated_at" = '2011-01-30 07:46:59' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/ads/1
+Completed in 62ms (DB: 1) | 302 Found [http://localhost/ads/1/update]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 16:46:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2011-01-30 17:36:03) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (undefined method `bedore_filter' for AdsController:Class):
+  app/controllers/ads_controller.rb:2
+
+Rendered rescues/_trace (30.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-30 17:36:15) [GET]
+  Parameters: {"id"=>"1"}
+Filter chain halted as [:check_logged_in] rendered_or_redirected.
+Completed in 1ms (View: 1, DB: 0) | 401 Unauthorized [http://localhost/ads/1/edit]
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-30 17:36:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/ads/1/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-30 17:36:29) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"Typewriter", "price"=>"71.95", "description"=>"Old manual typewriter. Many years useful service. Works best with a bottle next to it.\r\nhey!!", "img_url"=>"http://homepage.mac.com/david_griffiths/typewriter.png", "seller_id"=>"54", "email"=>"dhammett@email.com"}, "authenticity_token"=>"+yKPmOB1ZyuGrCoOWCuxMVavu8uY9wh8Y6CRJJGHJ+w=", "id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Redirected to http://localhost:3000/ads/1
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/ads/1/update]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:36:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/1]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:38:40) [GET]
+
+ActiveRecord::RecordNotFound (Couldn't find Ad without an ID):
+  app/controllers/ads_controller.rb:5:in `show'
+
+Rendered rescues/_trace (98.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:38:49) [GET]
+
+ActiveRecord::RecordNotFound (Couldn't find Ad without an ID):
+  app/controllers/ads_controller.rb:5:in `show'
+
+Rendered rescues/_trace (31.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:38:52) [GET]
+
+ActiveRecord::RecordNotFound (Couldn't find Ad without an ID):
+  app/controllers/ads_controller.rb:5:in `show'
+
+Rendered rescues/_trace (31.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:39:13) [GET]
+
+ActiveRecord::RecordNotFound (Couldn't find Ad without an ID):
+  app/controllers/ads_controller.rb:5:in `show'
+
+Rendered rescues/_trace (101.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:40:11) [GET]
+  [4;36;1mAd Load (1.7ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #5 of app/views/ads/index.html.erb:
+2:     <ul>
+3:       <% @ads.each do |ad| %>
+4:       <li><a href="/ads/<%= ad.id %>"><%= ad.name %></a></li>
+5:       <a href="/ads/<%= @ad.id %>/delete">Delete</a>
+6:       <% end %>
+7:     </ul>
+
+    app/views/ads/index.html.erb:5
+    app/views/ads/index.html.erb:3:in `each'
+    app/views/ads/index.html.erb:3
+
+Rendered rescues/_trace (40.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:41:18) [GET]
+  [4;35;1mAd Load (2.0ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #5 of app/views/ads/index.html.erb:
+2:     <ul>
+3:       <% @ads.each do |ad| %>
+4:       <li><a href="/ads/<%= ad.id %>"><%= ad.name %></a>
+5:       [<a href="/ads/<%= @ad.id %>/delete">Delete</a>]</li>
+6:       <% end %>
+7:     </ul>
+
+    app/views/ads/index.html.erb:5
+    app/views/ads/index.html.erb:3:in `each'
+    app/views/ads/index.html.erb:3
+
+Rendered rescues/_trace (109.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 17:43:34) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:43:39) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 3) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/3]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:43:43) [GET]
+  [4;35;1mAd Load (1.7ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #5 of app/views/ads/index.html.erb:
+2:     <ul>
+3:       <% @ads.each do |ad| %>
+4:       <li><a href="/ads/<%= ad.id %>"><%= ad.name %></a>
+5:       [<a href="/ads/<%= @ad.id %>/delete">Delete</a>]</li>
+6:       <% end %>
+7:     </ul>
+
+    app/views/ads/index.html.erb:5
+    app/views/ads/index.html.erb:3:in `each'
+    app/views/ads/index.html.erb:3
+
+Rendered rescues/_trace (39.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:44:49) [GET]
+  [4;36;1mAd Load (1.7ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 13ms (View: 7, DB: 2) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#39 (for 127.0.0.1 at 2011-01-30 17:44:59) [GET]
+  Parameters: {"id"=>"delete"}
+
+ActionController::UnknownAction (No action responded to 39. Actions: create, edit, index, new, show, stats, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:49:18) [GET]
+  [4;35;1mAd Load (1.7ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 10ms (View: 4, DB: 2) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#38 (for 127.0.0.1 at 2011-01-30 17:49:20) [GET]
+  Parameters: {"id"=>"delete"}
+
+ActionController::UnknownAction (No action responded to 38. Actions: create, destroy, edit, index, new, show, stats, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#destroy (for 127.0.0.1 at 2011-01-30 17:50:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 1) [0m
+  [4;35;1mAd Destroy (0.3ms)[0m   [0mDELETE FROM "ads" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/ads/
+Completed in 9ms (DB: 1) | 302 Found [http://localhost/ads/1/delete]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:50:32) [GET]
+  [4;36;1mAd Load (1.6ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 9ms (View: 4, DB: 2) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#destroy (for 127.0.0.1 at 2011-01-30 17:50:39) [GET]
+  Parameters: {"id"=>"39"}
+Filter chain halted as [:check_logged_in] rendered_or_redirected.
+Completed in 1ms (View: 1, DB: 0) | 401 Unauthorized [http://localhost/ads/39/delete]
+
+
+Processing AdsController#destroy (for 127.0.0.1 at 2011-01-30 17:50:39) [GET]
+  Parameters: {"id"=>"39"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 39) [0m
+  [4;36;1mAd Destroy (0.3ms)[0m   [0;1mDELETE FROM "ads" WHERE "id" = 39[0m
+Redirected to http://localhost:3000/ads/
+Completed in 9ms (DB: 1) | 302 Found [http://localhost/ads/39/delete]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:50:39) [GET]
+  [4;35;1mAd Load (1.4ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:51:09) [GET]
+  [4;36;1mAd Load (1.6ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 22ms (View: 16, DB: 2) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#destroy (for 127.0.0.1 at 2011-01-30 17:51:13) [GET]
+  Parameters: {"id"=>"38"}
+Filter chain halted as [:check_logged_in] rendered_or_redirected.
+Completed in 1ms (View: 1, DB: 0) | 401 Unauthorized [http://localhost/ads/38/delete]
+
+
+Processing AdsController#destroy (for 127.0.0.1 at 2011-01-30 17:51:13) [GET]
+  Parameters: {"id"=>"38"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 38) [0m
+  [4;36;1mAd Destroy (0.3ms)[0m   [0;1mDELETE FROM "ads" WHERE "id" = 38[0m
+Redirected to http://localhost:3000/ads/
+Completed in 9ms (DB: 1) | 302 Found [http://localhost/ads/38/delete]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-30 17:51:13) [GET]
+  [4;35;1mAd Load (1.4ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 17:51:51) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 15ms (View: 10, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-30 17:52:05) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"jjj", "price"=>"777", "description"=>"lll", "img_url"=>"kk.jpg", "seller_id"=>"kkk", "email"=>"kk"}, "authenticity_token"=>"+yKPmOB1ZyuGrCoOWCuxMVavu8uY9wh8Y6CRJJGHJ+w="}
+  [4;36;1mAd Create (125.3ms)[0m   [0;1mINSERT INTO "ads" ("name", "updated_at", "price", "description", "img_url", "seller_id", "email", "created_at") VALUES('jjj', '2011-01-30 08:52:05', 777.0, 'lll', 'kk.jpg', 0, 'kk', '2011-01-30 08:52:05')[0m
+Redirected to http://localhost:3000/ads/40
+Completed in 135ms (DB: 125) | 302 Found [http://localhost/ads/create]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:52:05) [GET]
+  Parameters: {"id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 15ms (View: 8, DB: 0) | 200 OK [http://localhost/ads/40]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-30 17:52:05) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-30 17:52:08) [GET]
+  Parameters: {"id"=>"40"}
+Filter chain halted as [:check_logged_in] rendered_or_redirected.
+Completed in 1ms (View: 1, DB: 0) | 401 Unauthorized [http://localhost/ads/40/edit]
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-30 17:52:08) [GET]
+  Parameters: {"id"=>"40"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://localhost/ads/40/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-30 17:52:11) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"jjj", "price"=>"777", "description"=>"lll", "img_url"=>"kk.jpg", "seller_id"=>"0", "email"=>"kk"}, "authenticity_token"=>"+yKPmOB1ZyuGrCoOWCuxMVavu8uY9wh8Y6CRJJGHJ+w=", "id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Redirected to http://localhost:3000/ads/40
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/ads/40/update]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-30 17:52:11) [GET]
+  Parameters: {"id"=>"40"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/40]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-30 17:52:11) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-30 18:09:39) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 59ms (View: 53, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-31 22:56:50) [GET]
+  [4;36;1mAd Load (1.5ms)[0m   [0;1mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 43ms (View: 38, DB: 2) | 200 OK [http://localhost/ads]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-31 22:56:55) [GET]
+  Parameters: {"id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 34ms (View: 29, DB: 0) | 200 OK [http://localhost/ads/40]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-31 22:56:55) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 22:56:57) [GET]
+  Parameters: {"id"=>"40"}
+Filter chain halted as [:check_logged_in] rendered_or_redirected.
+Completed in 1ms (View: 1, DB: 0) | 401 Unauthorized [http://localhost/ads/40/edit]
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 22:57:11) [GET]
+  Parameters: {"id"=>"40"}
+  [4;36;1mAd Load (0.4ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 38ms (View: 31, DB: 0) | 200 OK [http://localhost/ads/40/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-31 22:57:16) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"jjj", "price"=>"", "description"=>"lll", "img_url"=>"kk.jpg", "seller_id"=>"0", "email"=>"kk"}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ=", "id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Redirected to http://localhost:3000/ads/40
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/ads/40/update]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-31 22:57:16) [GET]
+  Parameters: {"id"=>"40"}
+  [4;36;1mAd Load (0.5ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/ads/40]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-31 22:57:16) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 22:58:01) [GET]
+  Parameters: {"id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/40/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-31 22:58:08) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"jjj", "price"=>"", "description"=>"lll", "img_url"=>"kk.jpg", "seller_id"=>"0ff", "email"=>"kk"}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ=", "id"=>"40"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Redirected to http://localhost:3000/ads/40
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/ads/40/update]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-31 22:58:08) [GET]
+  Parameters: {"id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/40]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-31 22:58:08) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 22:58:14) [GET]
+  Parameters: {"id"=>"40"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 76ms (View: 71, DB: 0) | 200 OK [http://localhost/ads/40/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-31 22:58:24) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"jjj", "price"=>"", "description"=>"lll", "img_url"=>"kk.jpg", "seller_id"=>"0kkk", "email"=>"kk"}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ=", "id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Redirected to http://localhost:3000/ads/40
+Completed in 8ms (DB: 0) | 302 Found [http://localhost/ads/40/update]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-31 22:58:24) [GET]
+  Parameters: {"id"=>"40"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/40]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-31 22:58:24) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 22:58:27) [GET]
+  Parameters: {"id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/ads/40/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-31 22:59:04) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"jjj", "price"=>"", "description"=>"lll", "img_url"=>"kk.jpg", "seller_id"=>"0", "email"=>"kk"}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ=", "id"=>"40"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Redirected to http://localhost:3000/ads/40
+Completed in 8ms (DB: 0) | 302 Found [http://localhost/ads/40/update]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-31 22:59:04) [GET]
+  Parameters: {"id"=>"40"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/40]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-31 22:59:04) [GET]
+
+ActionController::RoutingError (No route matches "/ads/kk.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 22:59:08) [GET]
+  Parameters: {"id"=>"40"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 40) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/ads/40/edit]
+
+
+Processing AdsController#40 (for 127.0.0.1 at 2011-01-31 23:01:14) [GET]
+  Parameters: {"id"=>"new"}
+
+ActionController::UnknownAction (No action responded to 40. Actions: create, destroy, edit, index, new, show, stats, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdsController#new (for 127.0.0.1 at 2011-01-31 23:01:26) [GET]
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 32ms (View: 26, DB: 0) | 200 OK [http://localhost/ads/new]
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-31 23:01:30) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"", "price"=>"", "description"=>"", "img_url"=>"", "seller_id"=>"", "email"=>""}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ="}
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/ads/create]
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-31 23:07:57) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"", "price"=>"", "description"=>"", "img_url"=>"", "seller_id"=>"", "email"=>""}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ="}
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 22ms (View: 15, DB: 0) | 200 OK [http://localhost/ads/create]
+
+
+Processing AdsController#create (for 127.0.0.1 at 2011-01-31 23:10:44) [POST]
+  Parameters: {"commit"=>"Create", "ad"=>{"name"=>"", "price"=>"", "description"=>"", "img_url"=>"", "seller_id"=>"", "email"=>""}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ="}
+Rendering template within layouts/ads
+Rendering ads/new
+Completed in 84ms (View: 9, DB: 0) | 200 OK [http://localhost/ads/create]
+
+
+Processing AdsController#index (for 127.0.0.1 at 2011-01-31 23:10:48) [GET]
+  [4;35;1mAd Load (1.4ms)[0m   [0mSELECT * FROM "ads" [0m
+Rendering template within layouts/ads
+Rendering ads/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/ads/]
+
+
+Processing AdsController#show (for 127.0.0.1 at 2011-01-31 23:10:50) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 2) [0m
+Rendering template within layouts/ads
+Rendering ads/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/ads/2]
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 23:10:52) [GET]
+  Parameters: {"id"=>"2"}
+Filter chain halted as [:check_logged_in] rendered_or_redirected.
+Completed in 1ms (View: 1, DB: 0) | 401 Unauthorized [http://localhost/ads/2/edit]
+
+
+Processing AdsController#edit (for 127.0.0.1 at 2011-01-31 23:10:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAd Load (0.3ms)[0m   [0mSELECT * FROM "ads" WHERE ("ads"."id" = 2) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 15ms (View: 10, DB: 0) | 200 OK [http://localhost/ads/2/edit]
+
+
+Processing AdsController#update (for 127.0.0.1 at 2011-01-31 23:10:58) [PUT]
+  Parameters: {"commit"=>"Update", "ad"=>{"name"=>"Football", "price"=>"", "description"=>"Some strings frayed.", "img_url"=>"http://www.freefever.com/freeclipart/clipart/football2.gif", "seller_id"=>"45", "email"=>"marty@googlemail.com"}, "authenticity_token"=>"+gGFO7zcSdHxbIrV544DTIam5bEms248eVST5osTnsQ=", "id"=>"2"}
+  [4;36;1mAd Load (0.3ms)[0m   [0;1mSELECT * FROM "ads" WHERE ("ads"."id" = 2) [0m
+Rendering template within layouts/ads
+Rendering ads/edit
+Completed in 17ms (View: 8, DB: 0) | 200 OK [http://localhost/ads/2/update]
